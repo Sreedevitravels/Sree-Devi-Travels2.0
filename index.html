@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sree Devi Travels - Tirupati</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="slider">
+    <div class="slide active" style="background-image: url('https://images.pexels.com/photos/296053/pexels-photo-296053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750');">
+      <div class="overlay-text">
+        <h1>Sree Devi Travels</h1>
+        <p>Premium Temple Tour Services in Tirupati</p>
+        <a href="#contact" class="button">Book Now</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('https://images.pexels.com/photos/279648/pexels-photo-279648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750');">
+      <div class="overlay-text">
+        <h1>Temple Tours Made Easy</h1>
+        <p>Comfortable Vehicles | VIP Packages</p>
+        <a href="#contact" class="button">Book Now</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750');">
+      <div class="overlay-text">
+        <h1>Travel in Comfort</h1>
+        <p>Tempo Travellers, Sedans & Sumo Vehicles</p>
+        <a href="#contact" class="button">Book Now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+<a href="#vehicles">Vehicles</a>
+<a href="#packages">Packages</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="vehicles">
+<h2>Our Vehicles</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Tempo Traveller (2)</h3>
+    <img src="https://images.pexels.com/photos/1008157/pexels-photo-1008157.jpeg" alt="Tempo Traveller">
+    <p>12 Seater | AC | Pushback Seats</p>
+    <p><strong>₹6,500 / Day</strong></p>
+  </div>
+  <div class="card">
+    <h3>Sedan / Verna (2)</h3>
+    <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg" alt="Sedan / Verna">
+    <p>4 Seater | AC | Comfortable</p>
+    <p><strong>₹3,500 / Day</strong></p>
+  </div>
+  <div class="card">
+    <h3>Tata Sumo (3)</h3>
+    <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg" alt="Tata Sumo">
+    <p>6-7 Seater | Perfect for Ghat Roads</p>
+    <p><strong>₹4,500 / Day</strong></p>
+  </div>
+</div>
+</section>
+
+<section id="packages">
+<h2>Temple Packages</h2>
+<div class="cards">
+  <div class="card">
+    <h3>1 Day Tirumala Darshan</h3>
+    <p>Pickup & Drop | Local Temple Visits</p>
+    <p><strong>Starting ₹3,500</strong></p>
+  </div>
+  <div class="card">
+    <h3>2 Day Temple Tour</h3>
+    <p>Tirumala Darshan | Srikalahasti & Tiruchanur</p>
+    <p><strong>Starting ₹9,000</strong></p>
+  </div>
+  <div class="card">
+    <h3>VIP / Custom Package</h3>
+    <p>Airport Pickup | Hotel Arrangement | Special Darshan Assistance</p>
+    <p><strong>Call for Price</strong></p>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact & Booking</h2>
+<p>Tirupati, Andhra Pradesh</p>
+<p>Phone: +91 8179885609</p>
+<p>Email: info@sreedevi-travels.com</p>
+
+<form id="bookingForm">
+  <input type="text" id="name" placeholder="Your Name" required><br>
+  <input type="tel" id="phone" placeholder="Phone Number" required><br>
+  <input type="date" id="date" required><br>
+  <select id="vehicle" required>
+    <option value="">Select Vehicle</option>
+    <option value="sedan">Sedan / Verna</option>
+    <option value="sumo">Tata Sumo</option>
+    <option value="tempo">Tempo Traveller</option>
+  </select><br>
+  <button type="button" onclick="submitBooking()">Submit Booking via WhatsApp</button>
+</form>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3802.0000000000005!2d79.1750000000000!3d13.6320000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4ba00000000001%3A0x0000000000000000!2sTirupati%20Temple!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<footer>
+© 2026 Sree Devi Travels | Tirupati
+</footer>
+
+<script>
+function submitBooking() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var date = document.getElementById("date").value;
+    var vehicle = document.getElementById("vehicle").value;
+
+    if(!name || !phone || !date || !vehicle){
+        alert("Please fill all fields!");
+        return;
+    }
+
+    var message = `Hello, I want to book a vehicle for my temple tour.%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0AVehicle: ${vehicle}`;
+    var whatsappURL = "https://wa.me/918179885609?text=" + message;
+
+    window.open(whatsappURL, "_blank");
+}
+
+// Slider
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+function showNextSlide() {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}
+setInterval(showNextSlide, 4000);
+</script>
+
+</body>
+</html>
